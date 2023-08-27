@@ -1,0 +1,1 @@
+web: gunicorn contract_generator.wsgi

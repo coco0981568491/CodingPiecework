@@ -1,0 +1,448 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>租約小幫手</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="/assets/logo-226262cee7ea896d42af211d31bd630cc7087f12e574165246d5c81885deb20d.ico" />
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="Jgq5uEQ33xRkRCJzGiNgYQJzfvBm061An8K5iA265_xEMD1zH-j7hDQli6Mg8M3u9oAVA0GWw-FNWQ2sSK96yQ" />
+    
+
+    <link rel="stylesheet" href="/assets/application-1cfca2ced63ebf8b0929557eab1e71cabb44913fe3ecea5cb77c75a8320601a3.css" data-turbo-track="reload" />
+    <script type="importmap" data-turbo-track="reload">{
+  
+  }
+</script>
+<link rel="modulepreload" href="/assets/application-3f54ec15963b2de6346314ce624deffccfcb158eafe1ed44f5ceadac3a40c760.js">
+<link rel="modulepreload" href="/assets/turbo.min-7ab2ea9f35bae4a4d65b552f9b93524099f267a8ba3a2e07002aaa7bff8ae4cf.js">
+<link rel="modulepreload" href="/assets/stimulus.min-fa40ff09c37a21b3e1eb112fe0dd3ecd0b9904f0ba841093d3fb3da1a50c2409.js">
+<link rel="modulepreload" href="/assets/stimulus-loading-1fc59770fb1654500044afd3f5f6d7d00800e5be36746d55b94a2963a7a228aa.js">
+<script src="/assets/es-module-shims.min-d89e73202ec09dede55fb74115af9c5f9f2bb965433de1c2446e1faa6dac2470.js" async="async" data-turbo-track="reload"></script>
+<script type="module">import "application"</script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4" aria-label="Ninth navbar example">
+  <!-- <div class="container-xl">
+    <a class="navbar-brand" href="https://www.sinyi.com.tw/businesscard/?agentid=330110&utm_source=sa&utm_medium=link_share&utm_campaign=BC330110FH19Y307121509&fbclid=IwAR3uod25ckSDt09OVFA-mitRRe5USlY2VZafMN3izWX7h9AbewQawunfN38">信義小魯</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample07XL">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/">水電</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/lease/index">租約</a>
+        </li>
+      </ul>
+    </div>
+  </div> -->
+</nav>
+    <div class="container-sm">
+      <div>
+    <h1 class="text-center mb-4">租約小幫手</h1>
+</div>
+
+<form class="row g-3 needs-validation" data-controller="form" id="my-form" action="start" accept-charset="UTF-8" method="get">
+    <div class="row g-3">
+        <div class="row g-3">
+            <label class="form-label fw-bold fs-4" for="審閱時間">審閱時間</label>
+
+            <div class="col-md-4 has-validation">
+                <label for="年(民國)">年(民國)</label>
+                <input class="form-control" pattern="\d{0,3}" type="text" name="year" id="year" />
+                <div class="invalid-feedback">
+                    只允許數字且最多3位數
+                </div>
+            </div>
+            <div class="col-md-4 has-validation">
+                <label for="月">月</label>
+                <input class="form-control" pattern="\d{0,2}" type="text" name="month" id="month" />
+                <div class="invalid-feedback">
+                    只允許數字且最多2位數
+                </div>
+            </div>
+            <div class="col-md-4 has-validation">
+                <label for="日">日</label>
+                <input class="form-control" pattern="\d{0,2}" type="text" name="date" id="date" />
+                <div class="invalid-feedback">
+                    只允許數字且最多2位數
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <label class="form-label fw-bold fs-4" for="租賃住宅標示">租賃住宅標示</label>
+
+            <div class="row g-3">
+                <div class="col-md-4 has-validation">
+                    <label for="建號">建號</label>
+                    <input class="form-control" required="required" pattern="[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u30FF\uFF66-\uFF9F\uF900-\uFAFF\u002D\u0028\u0029\d\(\)\.-]+" type="text" name="building_number" id="building_number" />
+                    <div class="invalid-feedback">
+                        必填，只允許中文、數字、半形括號、-符號、.符號
+                    </div>
+                </div>
+                <div class="col-md-4 has-validation">
+                    <label for="門牌">門牌</label>
+                    <input class="form-control" required="required" pattern="[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u30FF\uFF66-\uFF9F\uF900-\uFAFF\u002D\u0028\u0029\d\(\)\.-]+" type="text" name="house_number" id="house_number" />
+                    <div class="invalid-feedback">
+                        必填，只允許中文、數字、半形括號、-符號、.符號
+                    </div>
+                </div>
+                <div class="col-md-4" has-validation>
+                    <label for="主建物">主建物</label>
+                    <input class="form-control" pattern="[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u30FF\uFF66-\uFF9F\uF900-\uFAFF\u002D\u0028\u0029\d\(\)\.-]+" type="text" name="main_building" id="main_building" />
+                    <div class="invalid-feedback">
+                        只允許中文、數字、半形括號、-符號、.符號
+                    </div>
+                </div>
+                <div class="col-md-4" has-validation>
+                    <label for="附屬建物">附屬建物</label>
+                    <input class="form-control" pattern="[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u30FF\uFF66-\uFF9F\uF900-\uFAFF\u002D\u0028\u0029\d\(\)\.-]+" type="text" name="affiliated_building" id="affiliated_building" />
+                    <div class="invalid-feedback">
+                        只允許中文、數字、半形括號、-符號、.符號
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="共有部分建號">共有部分建號</label>
+                    <input class="form-control" pattern="[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u30FF\uFF66-\uFF9F\uF900-\uFAFF\u002D\u0028\u0029\d\(\)\.-]+" type="text" name="shared_building_number" id="shared_building_number" />
+                    <div class="invalid-feedback">
+                        只允許中文、數字、半形括號、-符號、.符號
+                    </div>
+                </div>
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4 has-validation">
+                    <label for="汽車位">汽車位</label>
+                    <div class="form-check">
+                        <input id="option_parking_flat" class="form-check-input" type="radio" value="有" name="option_car_position" />
+                        <label class="form-check-label" for="option_car_position_yes">有</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="option_parking_machine" class="form-check-input" type="radio" value="無" name="option_car_position" />
+                        <label class="form-check-label" for="option_car_position_no">無</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="option_parking_machine" class="form-check-input" type="radio" value="洽管委會" name="option_car_position" />
+                        <label class="form-check-label" for="option_car_position_ask_more">洽管委會</label>
+                    </div>
+                </div>
+                <div class="col-md-4 has-validation">
+                    <label for="機車位">機車位</label>
+                    <div class="form-check">
+                        <input id="option_parking_flat" class="form-check-input" type="radio" value="有" name="option_bike_position" />
+                        <label class="form-check-label" for="option_bike_position_yes">有</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="option_parking_machine" class="form-check-input" type="radio" value="無" name="option_bike_position" />
+                        <label class="form-check-label" for="option_bike_position_no">無</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="option_parking_machine" class="form-check-input" type="radio" value="洽管委會" name="option_bike_position" />
+                        <label class="form-check-label" for="option_bike_position_ask_more">洽管委會</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <label class="form-label fw-bold fs-4" for="租賃範圍">租賃範圍</label>
+
+            <div class="row g-3 mb-4">
+                <label class="form-label fw-bold fs-5" for="汽車車位">汽車車位</label>
+
+                <div class="col-md-4 has-validation">
+                    <label for="第幾層(若無車位則免填)">第幾層(若無車位則免填)</label>
+                    <input class="form-control" pattern="[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u30FF\uFF66-\uFF9F\uF900-\uFAFF\u002D\u0028\u0029\da-zA-Z]+" type="text" name="parking_car_floor" id="parking_car_floor" />
+                    <div class="invalid-feedback">
+                        只允許中文、英文、數字
+                    </div>
+                </div>
+
+                <div class="col-md-4 has-validation">
+                    <label for="車位編號">車位編號</label>
+                    <input class="form-control" pattern="[\d-]+" type="text" name="parking_car_number" id="parking_car_number" />
+                    <div class="invalid-feedback">
+                        只允許數字 和 -符號
+                    </div>
+                </div>
+
+                <div class="col-md-4 has-validation">
+                    <div class="form-check">
+                        <input id="option_parking_flat" class="form-check-input" type="radio" value="平面車位" name="option_parking_type" />
+                        <label class="form-check-label" for="option_flat">平面車位</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="option_parking_machine" class="form-check-input" type="radio" value="機械車位" name="option_parking_type" />
+                        <label class="form-check-label" for="option_machine">機械車位</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-3 mb-4">
+                <label class="form-label fw-bold fs-5" for="機車車位">機車車位</label>
+
+                <div class="col-md-4 has-validation">
+                    <label for="第幾層(若無車位則免填)">第幾層(若無車位則免填)</label>
+                    <input class="form-control" pattern="[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u30FF\uFF66-\uFF9F\uF900-\uFAFF\u002D\u0028\u0029\da-zA-Z]+" type="text" name="parking_bike_floor" id="parking_bike_floor" />
+                    <div class="invalid-feedback">
+                        只允許中文、英文、數字
+                    </div>
+                </div>
+
+                <div class="col-md-4 has-validation">
+                    <label for="車位編號">車位編號</label>
+                    <input class="form-control" pattern="[\d-]+" type="text" name="parking_bike_number" id="parking_bike_number" />
+                    <div class="invalid-feedback">
+                        只允許數字 和 -符號
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-3 mb-4">
+                <label class="form-label fw-bold fs-5" for="使用時間">使用時間</label>
+
+                <div class="col-md-4 has-validation">
+
+                    <div class="form-check">
+                        <input id="option_parking_use_period_full" class="form-check-input" type="radio" value="全日" name="option_parking_period" />
+                        <label class="form-check-label" for="option_flat">全日</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input id="option_parking_use_period_day" class="form-check-input" type="radio" value="日間" name="option_parking_period" />
+                        <label class="form-check-label" for="option_day">日間</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input id="option_parking_use_period_night" class="form-check-input" type="radio" value="夜間" name="option_parking_period" />
+                        <label class="form-check-label" for="option_night">夜間</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input id="option_parking_use_period_other" class="form-check-input" type="radio" value="其他" name="option_parking_period" />
+                        <label class="form-check-label" for="option_others">其他</label>
+                        <input class="form-control" pattern="[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u30FF\uFF66-\uFF9F\uF900-\uFAFF\u002D\u0028\u0029\d\(\)-]+" type="text" name="other" id="other" />
+                        <div class="invalid-feedback">
+                            只允許中文、數字、半形括號、-符號
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <label class="form-label fw-bold fs-4" for="租賃期間">租賃期間</label>
+
+            <div class="row g-3 mb-4">
+                <label class="form-label fw-bold fs-5" for="起始時間">起始時間</label>
+                <div class="col-md-4 has-validation">
+                    <label for="年(民國)">年(民國)</label>
+                    <input class="form-control" pattern="\d{0,3}" type="text" name="lease_period_from_year" id="lease_period_from_year" />
+                    <div class="invalid-feedback">
+                        只允許數字且最多3位數
+                    </div>
+                </div>
+                <div class="col-md-4 has-validation">
+                    <label for="月">月</label>
+                    <input class="form-control" pattern="\d{0,2}" type="text" name="lease_period_from_month" id="lease_period_from_month" />
+                    <div class="invalid-feedback">
+                        只允許數字且最多2位數
+                    </div>
+                </div>
+                <div class="col-md-4 has-validation">
+                    <label for="日">日</label>
+                    <input class="form-control" pattern="\d{0,2}" type="text" name="lease_period_from_day" id="lease_period_from_day" />
+                    <div class="invalid-feedback">
+                        只允許數字且最多2位數
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-3 mb-4">
+                <label class="form-label fw-bold fs-5" for="截止時間">截止時間</label>
+
+                <div class="col-md-4 has-validation">
+                    <label for="年(民國)">年(民國)</label>
+                    <input class="form-control" pattern="\d{0,3}" type="text" name="lease_period_to_year" id="lease_period_to_year" />
+                    <div class="invalid-feedback">
+                        只允許數字且最多3位數
+                    </div>
+                </div>
+                <div class="col-md-4 has-validation">
+                    <label for="月">月</label>
+                    <input class="form-control" pattern="\d{0,2}" type="text" name="lease_period_to_month" id="lease_period_to_month" />
+                    <div class="invalid-feedback">
+                        只允許數字且最多2位數
+                    </div>
+                </div>
+                <div class="col-md-4 has-validation">
+                    <label for="日">日</label>
+                    <input class="form-control" pattern="\d{0,2}" type="text" name="lease_period_to_day" id="lease_period_to_day" />
+                    <div class="invalid-feedback">
+                        只允許數字且最多2位數
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <label class="form-label fw-bold fs-4" for="租金資訊">租金資訊</label>
+
+            <div class="col-md-4 has-validation">
+                <label for="繳納租金">繳納租金</label>
+                <div class="input-group mb-3">
+                    <input class="form-control" pattern="\d+" type="text" name="lease_price" id="lease_price" />
+                    <span class="input-group-text" id="basic-addon2">元</span>
+                    <div class="invalid-feedback">
+                        只允許數字
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 has-validation">
+                <div class="form-check">
+                    <input id="option_lease_unit_month" class="form-check-input" type="radio" value="於每月" checked="checked" name="option_lease_unit" />
+                    <label class="form-check-label" for="option_per_month">於每月</label>
+
+                    <div class="input-group mb-3">
+                        <input class="form-control" pattern="\d+" type="text" name="option_lease_unit_month_day" id="option_lease_unit_month_day" />
+                        <span class="input-group-text" id="basic-addon2">日前支付</span>
+                        <div class="invalid-feedback">
+                            只允許數字
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 has-validation">
+                <div class="form-check">
+                    <input id="option_pay_method" class="form-check-input" type="radio" value="轉帳繳納" checked="checked" name="option_pay_method" />
+                    <label class="form-check-label" for="option_transfer">轉帳繳納</label>
+
+                    <br>
+                    <div class="has-validation">
+                        <label for="option_bank_name">金融機構</label>
+                        <input class="form-control" pattern="[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u30FF\uFF66-\uFF9F\uF900-\uFAFF\u002D\u0028\u0029\(\)\d]+" type="text" name="bank_name" id="bank_name" />
+                        <div class="invalid-feedback">
+                            只允許中文、數字、半形括號
+                        </div>
+                    </div>
+
+                    <div class="has-validation">
+                        <label for="option_bank_user_name">戶名</label>
+                        <input class="form-control" pattern="[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u30FF\uFF66-\uFF9F\uF900-\uFAFF\u002D\u0028\u0029]+" type="text" name="bank_user_name" id="bank_user_name" />
+                        <div class="invalid-feedback">
+                            只允許中文字
+                        </div>
+                    </div>
+
+                    <div class="has-validation">
+                        <label for="option_bank_user_account">帳號</label>
+                        <input class="form-control" pattern="[\d-]+" type="text" name="bank_user_account" id="bank_user_account" />
+                        <div class="invalid-feedback">
+                            只允許數字跟-符號
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <label class="form-label fw-bold fs-4" for="立契約書人">立契約書人</label>
+
+            <div class="row g-3 mb-4">
+                <label class="form-label fw-bold fs-5" for="出租人">出租人</label>
+
+                <div class="col-md-4 has-validation">
+                    <label for="姓名">姓名</label>
+                    <input class="form-control" required="required" pattern="[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u30FF\uFF66-\uFF9F\uF900-\uFAFF\u002D\u0028\u0029\s]+" type="text" name="leaseholder" id="leaseholder" />
+                    <div class="invalid-feedback">
+                        必填，只允許中文字、空白
+                    </div>
+                </div>
+                <div class="col-md-4 has-validation">
+                    <label for="統一編號(身份證明文件編號)">統一編號(身份證明文件編號)</label>
+                    <input class="form-control" pattern="^[A-Z]{1}\d+" type="text" name="leaseholder_id_number" id="leaseholder_id_number" />
+                    <div class="invalid-feedback">
+                        e.g. D122456789
+                    </div>
+                </div>
+                <div class="col-md-4 has-validation">
+                    <label for="戶籍地址(營業登記地址)">戶籍地址(營業登記地址)</label>
+                    <input class="form-control" pattern="[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u30FF\uFF66-\uFF9F\uF900-\uFAFF\u002D\u0028\u0029\(\)\d-]+" type="text" name="leaseholder_address" id="leaseholder_address" />
+                    <div class="invalid-feedback">
+                        只允許中文、數字、半形括號、-符號
+                    </div>
+                </div>
+                <div class="col-md-4 has-validation">
+                    <label for="通訊地址">通訊地址</label>
+                    <input class="form-control" pattern="[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u30FF\uFF66-\uFF9F\uF900-\uFAFF\u002D\u0028\u0029\(\)\d-]+" type="text" name="leaseholder_comm_address" id="leaseholder_comm_address" />
+                    <div class="invalid-feedback">
+                        只允許中文、數字、半形括號、-符號
+                    </div>
+                </div>
+                <div class="col-md-4 has-validation">
+                    <label for="聯絡電話">聯絡電話</label>
+                    <input class="form-control" pattern="[\d\(\)-]+" type="text" name="leaseholder_phone" id="leaseholder_phone" />
+                    <div class="invalid-feedback">
+                        只允許數字、半形括號、-符號
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-3 mb-4">
+                <label class="form-label fw-bold fs-5" for="承租人">承租人</label>
+
+                <div class="col-md-4 has-validation">
+                    <label for="姓名">姓名</label>
+                    <input class="form-control" required="required" pattern="[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u30FF\uFF66-\uFF9F\uF900-\uFAFF\u002D\u0028\u0029\s]+" type="text" name="leasee" id="leasee" />
+                    <div class="invalid-feedback">
+                        必填，只允許中文字、空白
+                    </div>
+                </div>
+                <div class="col-md-4 has-validation">
+                    <label for="統一編號(身份證明文件編號)">統一編號(身份證明文件編號)</label>
+                    <input class="form-control" pattern="^[A-Z]{1}\d+" type="text" name="leasee_id_number" id="leasee_id_number" />
+                    <div class="invalid-feedback">
+                        e.g. D122456789
+                    </div>
+                </div>
+                <div class="col-md-4 has-validation">
+                    <label for="戶籍地址(營業登記地址)">戶籍地址(營業登記地址)</label>
+                    <input class="form-control" pattern="[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u30FF\uFF66-\uFF9F\uF900-\uFAFF\u002D\u0028\u0029\(\)\d-]+" type="text" name="leasee_address" id="leasee_address" />
+                    <div class="invalid-feedback">
+                        只允許中文、數字、半形括號、-符號
+                    </div>
+                </div>
+                <div class="col-md-4 has-validation">
+                    <label for="通訊地址">通訊地址</label>
+                    <input class="form-control" pattern="[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u30FF\uFF66-\uFF9F\uF900-\uFAFF\u002D\u0028\u0029\(\)\d-]+" type="text" name="leasee_comm_address" id="leasee_comm_address" />
+                    <div class="invalid-feedback">
+                        只允許中文、數字、半形括號、-符號
+                    </div>
+                </div>
+                <div class="col-md-4 has-validation">
+                    <label for="聯絡電話">聯絡電話</label>
+                    <input class="form-control" pattern="[\d\(\)-]+" type="text" name="leasee_phone" id="leasee_phone" />
+                    <div class="invalid-feedback">
+                        只允許數字、半形括號、-符號
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <input type="submit" name="commit" value="產生圖表" class="btn btn-primary mb-5" data-disable-with="產生圖表" />
+    </div>
+</form>
+    </div>
+    <footer class="footer mt-auto py-3 bg-light">
+  <div class="container">
+    <span class="text-center text-small" style="color:#A3A3A3">© 2022 <a style="color: #A3A3A3;">2023 created by Yu-Xi Tsai</a></span>
+  </div>
+</footer>
+  </body>
+</html>
